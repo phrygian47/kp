@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from "@nuxt/ui";
 import { useRoute } from "vue-router";
+import { computed } from "vue";
 
 const route = useRoute();
 
@@ -8,48 +9,39 @@ const isHome = computed(() => route.path === "/");
 
 const items = computed<NavigationMenuItem[]>(() => [
   {
-    label: "Message",
-    to: "#",
+    label: "About",
+    to: "/about",
   },
   {
-    label: "Method",
-    to: "#",
+    label: "The Book",
+    to: "/book",
   },
   {
-    label: "Motive",
-    to: "#",
+    label: "Resources",
+    to: "/resources",
   },
   {
-    label: "Cost",
-    to: "#",
-  },
-  {
-    label: "FAQ",
+    label: "FAQs",
     to: "/faq",
   },
+  {
+    label: "Donate",
+    to: "/donate",
+  },
+  {
+    label: "Contact",
+    to: "/contact",
+  },
 ]);
-const scrolled = ref(false);
-const onScroll = () => (scrolled.value = window.scrollY > 8);
-onMounted(() => {
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-});
-onBeforeUnmount(() => window.removeEventListener("scroll", onScroll));
 </script>
 
 <template>
-  <div
-    :class="[
-      'outer-header',
-      { 'is-scrolled': scrolled },
-      { 'outer-header--home': isHome },
-    ]"
-  >
+  <div :class="['outer-header', { 'outer-header--home': isHome }]">
     <div :class="['header', { 'header--alt': !isHome }]">
       <nav class="container" aria-label="Primary">
         <div class="logo"><NuxtLink to="/">THE KEOKUK PRINCIPLE</NuxtLink></div>
         <ul class="navbar">
-          <li v-for="item in items">
+          <li v-for="item in items" :key="item.label">
             <NuxtLink :to="item.to" class="link">{{ item.label }}</NuxtLink>
           </li>
         </ul>
@@ -139,10 +131,5 @@ li {
     Arial, sans-serif;
   color: #fff;
   text-shadow: 0px 0px 10px #000;
-}
-
-.outer-header.is-scrolled {
-  background: rgba(248, 250, 252, 0.75);
-  border-color: rgba(15, 23, 42, 0.15);
 }
 </style>

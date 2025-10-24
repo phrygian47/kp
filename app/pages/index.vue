@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import hero from "../components/Hero.vue";
-import Mission from "~/components/Mission.vue";
+import hero from "../components/index/Hero.vue";
+import Mission from "~/components/index/Mission.vue";
 </script>
 
 <template>

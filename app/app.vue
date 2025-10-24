@@ -3,6 +3,7 @@ import Header from "./components/Header.vue";
 </script>
 
 <template>
+  <div class="background"></div>
   <header>
     <Header></Header>
   </header>
@@ -18,6 +19,19 @@ import Header from "./components/Header.vue";
 
 :root {
   --background-color: #eae3d7;
+  --background-main: #0e0f11;
+  --bg-ink: #0b0f14;
+  --bg-slate: #1f2937;
+  --bg-paper: #f5f1e8;
+  --text: #f8fafc;
+  --text-dark: #0f172a;
+  --muted: #94a3b8;
+
+  --primary: #0f766e;
+  --primary-hover: #115e59;
+  --primary-bright: #2dd4bf;
+  --secondary: #b45309;
+  --accent: #eab308;
 }
 
 li {
@@ -25,6 +39,7 @@ li {
 }
 
 a {
+  display: block;
   text-decoration: none;
   color: #fff;
 }
@@ -35,6 +50,13 @@ a:visited {
 
 a:hover::after {
   transform: scaleX(1);
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  background: var(--background-main);
+  z-index: -50;
 }
 
 .container {

@@ -49,10 +49,16 @@ onMounted(() => {
 <style scoped>
 .hero {
   position: relative;
-  min-height: 70vh;
+  min-height: 80vh;
   display: grid;
   place-items: center;
   overflow: hidden;
+  background: linear-gradient(
+    to bottom,
+    rgb(14, 15, 17, 0),
+    60%,
+    var(--background-main)
+  );
 }
 
 .content {
