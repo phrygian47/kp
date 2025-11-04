@@ -9,6 +9,10 @@ const isHome = computed(() => route.path === "/");
 
 const items = computed<NavigationMenuItem[]>(() => [
   {
+    label: "Home",
+    to: "/",
+  },
+  {
     label: "About",
     to: "/about",
   },
@@ -39,7 +43,6 @@ const items = computed<NavigationMenuItem[]>(() => [
   <div :class="['outer-header', { 'outer-header--home': isHome }]">
     <div :class="['header', { 'header--alt': !isHome }]">
       <nav class="container" aria-label="Primary">
-        <div class="logo"><NuxtLink to="/">THE KEOKUK PRINCIPLE</NuxtLink></div>
         <ul class="navbar">
           <li v-for="item in items" :key="item.label">
             <NuxtLink :to="item.to" class="link">{{ item.label }}</NuxtLink>
@@ -53,7 +56,7 @@ const items = computed<NavigationMenuItem[]>(() => [
 <style scoped>
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 8px;
   width: 100%;
 }
@@ -77,11 +80,10 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  backdrop-filter: blur(8px);
   min-height: 65px;
   max-height: 70px;
   pointer-events: all;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0);
 }
 
 .header--alt {
@@ -97,7 +99,6 @@ nav {
     "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
     Arial, sans-serif;
   color: #fff;
-  text-shadow: 0px 0px 10px #000;
 }
 
 .link::after {
@@ -109,7 +110,7 @@ nav {
   border-radius: 2px;
   bottom: 0;
   left: 0;
-  background-color: var(--background-color);
+  background-color: var(--accent-amber);
   transform: scaleX(0);
   transform-origin: bottom left;
   transition: transform 0.3s ease-out;
@@ -130,6 +131,5 @@ li {
     "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
     Arial, sans-serif;
   color: #fff;
-  text-shadow: 0px 0px 10px #000;
 }
 </style>

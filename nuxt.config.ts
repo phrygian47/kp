@@ -9,5 +9,9 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxt/scripts",
     "@nuxt/ui",
+    "@nuxt/icon",
   ],
+  icon: {
+    size: "1.5rem",
+  },
 });

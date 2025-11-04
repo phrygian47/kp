@@ -17,21 +17,46 @@ import Header from "./components/Header.vue";
   box-sizing: border-box;
 }
 
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: true;
+}
+@keyframes rotate {
+  to {
+    --angle: 1turn;
+  }
+}
+
 :root {
-  --background-color: #eae3d7;
+  --bg-light: #eae3d7;
   --background-main: #0e0f11;
   --bg-ink: #0b0f14;
   --bg-slate: #1f2937;
-  --bg-paper: #f5f1e8;
+  --bg-paper: #667d6f;
+  --brand: #667d6f;
+  --bg-alt: #00b300;
   --text: #f8fafc;
-  --text-dark: #0f172a;
+  --text-dark: #2a2e2b;
   --muted: #94a3b8;
 
-  --primary: #0f766e;
-  --primary-hover: #115e59;
-  --primary-bright: #2dd4bf;
-  --secondary: #b45309;
-  --accent: #eab308;
+  --primary: #003f88;
+  --primary-hover: #00296b;
+  --primary-bright: #007fc9;
+  --secondary: #553c74;
+  --accent: #743c5b;
+  --accent-amber: #e6a900;
+
+  --conic-grad: conic-gradient(
+    from var(--angle),
+    color-mix(in oklab, var(--brand) 92%, white) 0% 10%,
+    var(--brand) 10% 28%,
+    color-mix(in oklab, var(--brand) 70%, black) 28% 34%,
+    var(--brand) 34% 60%,
+    color-mix(in oklab, var(--brand) 65%, black) 60% 66%,
+    var(--brand) 66% 88%,
+    color-mix(in oklab, var(--brand) 90%, white) 88% 100%
+  );
 }
 
 li {
@@ -55,7 +80,7 @@ a:hover::after {
 .background {
   position: fixed;
   inset: 0;
-  background: var(--background-main);
+  background: linear-gradient(to bottom, var(--background-main));
   z-index: -50;
 }
 
