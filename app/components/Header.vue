@@ -71,7 +71,7 @@ nav {
   position: fixed;
   inset: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 100;
   pointer-events: none;
 }
 

@@ -11,7 +11,6 @@ const answers = ref<string[]>([answer1, answer2, answer3, answer4]);
 </script>
 
 <template>
-  <div class="bg"></div>
   <section class="questions">
     <div class="container content-box">
       <div class="question">
@@ -159,13 +158,5 @@ li a {
   width: 100%;
   justify-content: flex-end;
   line-height: 1.2;
-}
-
-.bg {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image: linear-gradient(var(--brand));
 }
 </style>

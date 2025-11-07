@@ -91,11 +91,26 @@ onMounted(() => {
 }
 
 .intro-img {
-  background-color: #fff;
+  position: relative;
   padding: 1rem;
   border: 0;
   box-shadow: none;
   outline: none;
+  user-select: none;
+}
+
+.intro-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 45%,
+    var(--brand) 56%
+  ); 
+  z-index: 10;
+  border-radius: 100vh;
+  transform: scale(1.2);
 }
 
 .intro-text {
@@ -106,9 +121,7 @@ onMounted(() => {
 }
 
 img {
-  border-radius: 0;
-  border: transparent;
-  outline: none;
+  border-radius: 100vh;
 }
 
 .sub {
@@ -134,6 +147,12 @@ img {
   text-decoration: none;
   font-size: 1.1rem;
   letter-spacing: 1px;
+  transition: transform 0.18s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-4px);
 }
 
 .btn--primary {
