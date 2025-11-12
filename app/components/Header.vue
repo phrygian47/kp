@@ -88,7 +88,6 @@ nav {
 
 .header--alt {
   background: none;
-  background: #000;
 }
 
 .header .logo {

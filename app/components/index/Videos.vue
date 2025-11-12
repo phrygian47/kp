@@ -94,19 +94,16 @@ button {
   cursor: pointer;
   background:
     linear-gradient(to right, #ddd, #fff, #ddd) padding-box,
-    linear-gradient(var(--bg-paper)) border-box;
-  border: 5px solid transparent;
+    conic-gradient(var(--accent-amber), var(--accent-amber)) border-box;
+  border: 3px solid transparent;
   border-radius: 100vw;
   box-shadow: 0 6px 24px -18px rgba(0, 0, 0, 0.6);
   font-size: 1.7rem;
   transition: transform 0.18s ease;
-  animation: rotate 3s linear infinite;
-  animation-play-state: paused;
 }
 
 button:hover,
 button:focus-visible {
-  animation-play-state: running;
   transform: translateY(-2px);
 }
 </style>

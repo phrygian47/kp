@@ -80,7 +80,7 @@ a:hover::after {
 .background {
   position: fixed;
   inset: 0;
-  background: linear-gradient(to bottom, var(--background-main));
+  background: linear-gradient(var(--brand));
   z-index: -50;
 }
 

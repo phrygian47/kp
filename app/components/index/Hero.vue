@@ -4,14 +4,18 @@ import keokukPortrait from "~/assets/keokuk-portrait.png";
 
 const show = ref(false);
 
+const emit = defineEmits<{
+  (e: "clicked", to?: number): void;
+}>();
+
 const smoothScroll = (sel: string) => {
   const el = document.querySelector(sel);
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
-const onChipClick = () => {
-  console.log("Button Pressed!");
-};
+function onFindOutMore() {
+  emit("clicked", 2); // tell parent to switch to panel 2
+}
 
 onMounted(() => {
   show.value = true;
@@ -25,9 +29,13 @@ onMounted(() => {
         <div class="intro-text__content">
           <h1 id="hero-title" class="h1">The <br />Keokuk <br />Principle</h1>
           <div class="btns">
-            <NuxtLink to="/book" class="btn btn--secondary"
-              >Find Out More</NuxtLink
+            <button
+              type="button"
+              @click="onFindOutMore"
+              class="btn btn--secondary"
             >
+              Find Out More
+            </button>
             <NuxtLink to="/book" class="btn btn--secondary"
               >Get the Book</NuxtLink
             >
@@ -47,6 +55,11 @@ onMounted(() => {
 </template>
 
 <style scoped>
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
 .btns {
   display: flex;
   gap: 2rem;
@@ -107,7 +120,7 @@ onMounted(() => {
     transparent 0%,
     rgba(0, 0, 0, 0.3) 45%,
     var(--brand) 56%
-  ); 
+  );
   z-index: 10;
   border-radius: 100vh;
   transform: scale(1.2);
@@ -143,7 +156,7 @@ img {
   margin-top: 0.5rem;
   border-radius: 100vw;
   font-weight: 700;
-  border: 1px solid transparent;
+  border: 3px solid transparent;
   text-decoration: none;
   font-size: 1.1rem;
   letter-spacing: 1px;
@@ -163,6 +176,6 @@ img {
 .btn--secondary {
   background: rgba(248, 250, 252, 0.9);
   color: #0f172a;
-  border-color: rgba(15, 23, 42, 0.08);
+  border-color: var(--accent-amber);
 }
 </style>

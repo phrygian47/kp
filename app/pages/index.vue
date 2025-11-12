@@ -36,6 +36,11 @@ const current = ref<number>(1);
 const activeComponent = computed(
   () => panels.value.find((p) => p.id === current.value)!
 );
+
+function handleChildClick(nextId?: number) {
+  // default to 2 if no payload provided
+  current.value = (nextId as PanelId) ?? 2;
+}
 </script>
 
 <template>
@@ -52,6 +57,7 @@ const activeComponent = computed(
             <component
               :is="activeComponent.component"
               :key="activeComponent.id"
+              @clicked="handleChildClick"
             />
           </div>
         </KeepAlive>
