@@ -1,23 +1,27 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Accordion from "~/components/faq/Accordion.vue";
+</script>
 
 <template>
   <div class="container center">
     <div class="banner"><h2>Frequently Asked Questions</h2></div>
     <div class="faq">
       <div class="faq__header"><h3>FAQs</h3></div>
-      <div class="faq__content">Content here</div>
+      <div class="faq__content">
+        <Accordion></Accordion>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
 h2 {
-  font-size: 4rem;
+  font-size: 5rem;
   color: var(--text);
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 3rem;
   color: var(--text);
 }
 
@@ -31,7 +35,6 @@ h3 {
 .banner {
   width: 50%;
   margin: 4rem;
-  border: 1px solid red;
   display: flex;
   justify-content: center;
 }
@@ -40,11 +43,7 @@ h3 {
   width: 50%;
 }
 
-.faq__header {
-  border: 1px solid red;
-}
-
 .faq__content {
-  border: 1px solid red;
+  padding: 1rem 0;
 }
 </style>

@@ -174,7 +174,7 @@ img {
 }
 
 .btn--secondary {
-  background: rgba(248, 250, 252, 0.9);
+  background: var(--text);
   color: #0f172a;
   border-color: var(--accent-amber);
 }

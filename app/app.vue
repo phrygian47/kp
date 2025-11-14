@@ -59,6 +59,12 @@ import Header from "./components/Header.vue";
   );
 }
 
+html {
+  scrollbar-gutter: stable;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
 li {
   list-style: none;
 }
