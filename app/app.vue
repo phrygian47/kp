@@ -29,7 +29,7 @@ import Header from "./components/Header.vue";
 }
 
 :root {
-  --bg-light: #eae3d7;
+  --bg-light: #faf7f2;
   --background-main: #0e0f11;
   --bg-ink: #0b0f14;
   --bg-slate: #1f2937;
@@ -38,7 +38,7 @@ import Header from "./components/Header.vue";
   --bg-alt: #00b300;
   --text: #f8fafc;
   --text-dark: #2a2e2b;
-  --muted: #94a3b8;
+  --muted: #aeb2b88a;
 
   --primary: #003f88;
   --primary-hover: #00296b;
@@ -59,9 +59,25 @@ import Header from "./components/Header.vue";
   );
 }
 
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
+
 html {
   scrollbar-gutter: stable;
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 li {

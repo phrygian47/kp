@@ -4,7 +4,7 @@ const items = ref<AccordionItem[]>([
   {
     label: "Who is Keokuk?",
     content:
-      "Keokuk was a Sauk Indian chief who lived at a time of great racial tensions, namely between the “whites” and the Natives. Another chief, Blackhawk, came with 300 warriors to Keokuk's village in April 1832 with the intent of enlisting Keokuk and his warriors to join him in crossing the Mississippi and attacking the whites and taking back their ancestral homelands. After Blackhawk's powerful, manipulative speech had whipped the warriors into a frenzy, Keokuk's speech brilliantly countered Blackhawk's manipulations and gave birth to the Keokuk Principle that we can use today to do the same.",
+      "Keokuk was a Sauk Native American chief who lived at a time of great racial tensions, namely between the “whites” and the previously named “Indians”. Another chief, Blackhawk, came with 300 warriors to Keokuk's village in April 1832 with the intent of enlisting Keokuk and his warriors to join him in crossing the Mississippi and attacking the whites and taking back their ancestral homelands. After Blackhawk's powerful, manipulative speech had whipped the warriors into a frenzy, Keokuk's speech brilliantly countered Blackhawk's manipulations and gave birth to the Keokuk Principle that we can use today to do the same.",
   },
   {
     label: "How am I defining manipulation?",

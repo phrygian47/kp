@@ -68,13 +68,11 @@ h2 {
 }
 
 .question {
-  overflow-y: auto;
   border-radius: 0;
   background-color: var(--bg-light);
   box-shadow:
     rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-  scrollbar-gutter: stable;
 }
 
 .questions {
@@ -91,7 +89,7 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  max-height: 70%;
+  max-height: 75%;
   height: 100%;
 }
 

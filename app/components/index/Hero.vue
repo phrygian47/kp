@@ -94,6 +94,7 @@ button {
 .intro-page {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 100vh;
 }
 
@@ -110,6 +111,11 @@ button {
   box-shadow: none;
   outline: none;
   user-select: none;
+  width: 100%;
+}
+
+.intro-img img {
+  width: 100%;
 }
 
 .intro-img::after {
