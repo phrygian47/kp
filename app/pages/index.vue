@@ -23,7 +23,7 @@ type Panel = {
   component: DefineComponent<any, any, any>;
 };
 
-const direction = ref<Dir>(null);
+const SCROLL_DELAY = 500; //ms
 
 const panels = ref<Panel[]>([
   { id: 1, label: "Hero", component: HeroPanel },
@@ -38,9 +38,43 @@ const activeComponent = computed(
 );
 
 function handleChildClick(nextId?: number) {
-  // default to 2 if no payload provided
+  //For learn more button on first page, default 2.
   current.value = (nextId as PanelId) ?? 2;
 }
+
+let wheelTimeout = false;
+
+const onWheel = (event: WheelEvent) => {
+  if (wheelTimeout) return;
+  let changed = false;
+  if (event.deltaY > 0) {
+    if (current.value >= 3) {
+      return;
+    }
+    current.value = (current.value + 1) as PanelId;
+    changed = true;
+  }
+  if (event.deltaY < 0) {
+    if (current.value <= 1) {
+      return;
+    }
+    current.value = (current.value - 1) as PanelId;
+    changed = true;
+  }
+  if (!changed) return;
+
+  wheelTimeout = true;
+  setTimeout(() => {
+    wheelTimeout = false;
+  }, SCROLL_DELAY);
+};
+
+onMounted(() => {
+  window.addEventListener("wheel", onWheel, { passive: true });
+});
+onBeforeUnmount(() => {
+  window.removeEventListener("wheel", onWheel);
+});
 </script>
 
 <template>
@@ -48,17 +82,17 @@ function handleChildClick(nextId?: number) {
   <div class="pagination">
     <Suspense>
       <template #default>
+        <!-- KeepAlive is optional now; v-show keeps DOM in place -->
         <KeepAlive>
           <div
-            :id="`panel-${activeComponent.id}`"
+            v-for="p in panels"
+            :key="p.id"
+            :id="`panel-${p.id}`"
             role="tabpanel"
-            :aria-labelledby="`tab-${activeComponent.id}`"
+            :aria-labelledby="`tab-${p.id}`"
+            v-show="p.id === current"
           >
-            <component
-              :is="activeComponent.component"
-              :key="activeComponent.id"
-              @clicked="handleChildClick"
-            />
+            <component :is="p.component" @clicked="handleChildClick" />
           </div>
         </KeepAlive>
       </template>
@@ -66,16 +100,16 @@ function handleChildClick(nextId?: number) {
         <div class="p-6 text-sm opacity-70">Loading…</div>
       </template>
     </Suspense>
+
     <nav class="nav-dots" role="tablist" aria-label="Panels">
       <button
         v-for="p in panels"
         :key="p.id"
-        role="tabs"
+        role="tab"
         @click="current = p.id"
         :aria-controls="`panel-${p.id}`"
         :aria-selected="p.id === current"
         :class="['dot', { 'dot-active': p.id === current }]"
-        class="dot"
       >
         <Icon name="icon-park-outline:dot" aria-hidden="true" />
       </button>

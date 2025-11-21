@@ -80,9 +80,9 @@ const accordionUi = {
   text-align: left;
   cursor: pointer;
   color: var(--acc-label);
-  font-size: 2.5rem;
-  text-transform: uppercase;
+  font-size: 3rem;
 }
+
 :deep(.acc-label) {
   font-weight: 400;
   transition: color 0.24s ease;

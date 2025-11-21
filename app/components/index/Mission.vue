@@ -3,7 +3,7 @@ import type { AccordionItem } from "@nuxt/ui";
 import Accordion from "../Accordion.vue";
 const items = ref<AccordionItem[]>([
   {
-    label: "What's The MESSAGE?",
+    label: "What's the MESSAGE?",
     content:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis elit vel risus vestibulum eleifend sit amet nec ipsum. Etiam hendrerit est in mi tempus elementum. Mauris venenatis arcu velit. Ut a eros in neque eleifend placerat. Donec neque odio, bibendum id justo in, tempor tincidunt lorem. Nullam in sapien vitae elit pharetra placerat id non sapien. Donec ac dapibus purus. Etiam placerat rutrum tincidunt. Aenean sagittis iaculis ornare. Aliquam euismod, risus a tempus fermentum, mi dui tempor lacus, at porta ligula lacus faucibus elit. Suspendisse potenti. Ut porta tortor non ex aliquam viverra.",
   },
@@ -31,7 +31,7 @@ const items = ref<AccordionItem[]>([
       <div class="question">
         <h2>
           You can Recognize and <span>Destroy</span>
-          Manipulation by Asking
+          Manipulation by Asking...
         </h2>
       </div>
       <div class="response">
