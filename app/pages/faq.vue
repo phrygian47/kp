@@ -15,6 +15,9 @@ import Accordion from "~/components/faq/Accordion.vue";
 </template>
 
 <style scoped>
+
+
+
 h2 {
   font-size: 5rem;
   color: var(--text);

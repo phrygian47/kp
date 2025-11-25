@@ -72,6 +72,9 @@ textarea,
 button,
 select {
   font: inherit;
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 html {

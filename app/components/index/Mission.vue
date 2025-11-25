@@ -91,6 +91,7 @@ h2 {
   gap: 2rem;
   max-height: 75%;
   height: 100%;
+  overflow: hidden;
 }
 
 .response__content {
